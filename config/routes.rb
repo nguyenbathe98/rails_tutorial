@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
-  resources :posts
-  resources :comments,            only: [:create, :edit, :update]
+  resources :posts do
+    resources :comments,            only: [:create, :edit, :update, :destroy]
+  end
 end
